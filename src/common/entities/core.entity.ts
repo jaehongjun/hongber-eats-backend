@@ -8,14 +8,14 @@ import {
 @ObjectType()
 export class CoreEntity {
   @PrimaryGeneratedColumn()
-  @Field((type) => String)
+  @Field((type) => Number)
   id: number;
 
   @CreateDateColumn()
-  @Field((type) => String)
+  @Field((type) => Date)
   createdAt: Date;
 
   @UpdateDateColumn()
-  @Field((type) => String)
+  @Field((type) => Date)
   updatedAt: Date;
 }
