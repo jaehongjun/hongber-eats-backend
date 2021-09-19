@@ -6,7 +6,7 @@ import {
   PartialType,
 } from '@nestjs/graphql';
 import { IsBoolean, IsString, Length } from 'class-validator';
-import { Restaurant } from '../entities/restaurant.entiti';
+import { Restaurant } from '../entities/restaurant.entity';
 import { CreateRestaurantDto } from './create-restaurants.dto';
 
 @InputType()
