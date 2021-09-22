@@ -6,19 +6,17 @@ import { CreateOrderInput, CreateOrderOutput } from './dtos/create-order.dto';
 import { Order } from './entities/order.entity';
 import { OrderService } from './orders.service';
 
-@Resolver(of => Order)
+@Resolver((of) => Order)
 export class OrderResolver {
   constructor(private readonly ordersService: OrderService) {}
 
-  @Mutation(returns => CreateOrderOutput)
+  @Mutation((returns) => CreateOrderOutput)
   @Role(['Client'])
   async createOrder(
     @AuthUser() customer: User,
     @Args('input')
     createOrderInput: CreateOrderInput,
   ): Promise<CreateOrderOutput> {
-    return {
-      ok: true,
-    };
+    return this.ordersService.CreateOrder(customer, createOrderInput);
   }
 }
